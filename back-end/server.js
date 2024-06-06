@@ -6,6 +6,7 @@ import { ENV } from './config/env.js';
  // CONNECTION à la base de données SQL
 import './config/db.js';
 
+//j'aime trop le coca
 // ROUTES
 
 const app = express();
