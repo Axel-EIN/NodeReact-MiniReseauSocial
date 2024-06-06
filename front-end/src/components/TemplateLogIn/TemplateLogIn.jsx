@@ -2,7 +2,7 @@ import { Outlet } from "react-router-dom";
 import Footer from './Footer';
 import Header from './Header';
 
-const Template = () => {
+const TemplateLogIn = () => {
 
   return(
     <>
@@ -12,4 +12,4 @@ const Template = () => {
     </>
   )
 }
-export default Template;
+export default TemplateLogIn;
