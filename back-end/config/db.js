@@ -18,8 +18,8 @@ try {
   console.error('Impossible de se connecter à la base de données :', error);
 }
 
-// await sequelizeConnection.sync(); // synchronise la base de données par rapport à nos modèles
-await sequelizeConnection.sync( {alter:true} ); // force la modification des champs et la création des tables / champs, peut créer des problèmes sur les clés uniques
+// await connection.sync(); // synchronise la base de données par rapport à nos modèles
+await connection.sync( {alter:true} ); // force la modification des champs et la création des tables / champs, peut créer des problèmes sur les clés uniques
 
 console.log('Synchronisation OK !');
 
