@@ -2,7 +2,6 @@ export default (connection, DataTypes) => {
     connection.define(
     "User",
     {
-      // Model attributes are defined here
       login: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -15,7 +14,6 @@ export default (connection, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
         unique: true,
-        // allowNull defaults to true
       },
     },
     {
