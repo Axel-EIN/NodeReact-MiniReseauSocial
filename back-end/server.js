@@ -4,7 +4,7 @@ import cors from 'cors';
 import { ENV } from './config/env.js';
 
  // CONNECTION à la base de données SQL
-import './config/db.js';
+import './models/index.js';
 
 // ROUTES
 import routerUser from './routes/user.route.js';
