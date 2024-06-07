@@ -6,8 +6,8 @@ import { ENV } from './config/env.js';
  // CONNECTION à la base de données SQL
 import './config/db.js';
 
-//j'aime trop le coca
 // ROUTES
+import routerUser from './routes/user.route.js';
 
 const app = express();
 
@@ -18,7 +18,8 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(cors());
 
-// MIDDLEWARE ROUTE
+// MIDDLEWARE TO ROUTE
+app.use("/api/user", routerUser);
 
 app.listen(PORT, () => {
   console.log(`Listening at http://localhost:${PORT}`);
