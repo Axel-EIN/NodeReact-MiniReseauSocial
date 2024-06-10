@@ -1,5 +1,5 @@
 export default (connection, DataTypes) => {
-    connection.define(
+  connection.define(
     "User",
     {
       login: {
@@ -13,7 +13,6 @@ export default (connection, DataTypes) => {
       password: {
         type: DataTypes.STRING,
         allowNull: false,
-        unique: true,
       },
     },
     {
