@@ -1,35 +1,34 @@
 
-import { User, Inbox } from '../config/db.js'; 
+import { User, Inbox } from '../models/index.js'; 
 
 
 export const getAllMessages = async (req, res) => {
   try {
-    const inbox = await Inbox.findAll({
+    const inbox1 = await Inbox.findAll({
       where: {
-        user_id_to: req.user.id,
+        inboxFromId: req.user.id
       },
     });
-    res.status(200).json(inbox);
+    const inbox2 = await Inbox.findAll({
+      where: {
+        inboxToId: req.user.id
+      },
+    });
+    const inbox3 = [...inbox1, ...inbox2]
+    res.status(200).json(inbox3);
   } catch (err) {
     res.status(500).json({ error: "Erreur lors de la récupération des messages" });
   }
 };
 
 
+
 export const addMessage = async (req, res) => {
   try {
-    const { text, user_id_to } = req.body;
 
-    const recipient = await User.findByPk(user_id_to);
-    if (!recipient) {
-      return res.status(404).json({ error: "Utilisateur destinataire non trouvé" });
-    }
+    const body2 = { ...req.body, inboxFromId: req.user.id, inboxToId:req.params.id }
 
-    const message = await Inbox.create({
-      text,
-      user_id_from: req.user.id,
-      user_id_to,
-    });
+    const message = await Inbox.create(body2);
 
     res.status(201).json(message);
   } catch (err) {
