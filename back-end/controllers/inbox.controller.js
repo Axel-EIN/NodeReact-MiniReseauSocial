@@ -1,5 +1,5 @@
-import { Inbox } from '../models/inbox.model.js'
-import { User } from '../models/user.model.js'; 
+
+import { User, Inbox } from '../config/db.js'; 
 
 
 export const getAllMessages = async (req, res) => {

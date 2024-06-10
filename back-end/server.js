@@ -9,6 +9,7 @@ import './models/index.js';
 
 // ROUTES
 import routerUser from './routes/user.route.js';
+import routerInbox from './routes/inbox.route.js';
 
 const app = express();
 
@@ -24,6 +25,7 @@ app.use("/api/user", routerUser);
 // MIDDLEWARE ROUTE
 app.use('/api/tweets', tweetRoute);
 
+app.use("/api/inbox", routerInbox);
 
 app.listen(PORT, () => {
   console.log(`Listening at http://localhost:${PORT}`);
