@@ -1,6 +1,7 @@
 import { Sequelize } from "sequelize";
 import { ENV } from '../config/env.js';
 import userModel from '../models/user.model.js';
+import contentModel from "./content.model.js";
 
 const connection = new Sequelize(
   ENV.DB_NAME,
@@ -20,14 +21,13 @@ try {
 }
 
 userModel(connection, Sequelize); // lancement de la méthode userModel qui va créer l'objet modèle User avec la connection Sequelize intégrée
-
+contentModel(connection, Sequelize)
 const {
     User,
+    Content
 } = connection.models; // Ajout des modèles dans une propriété models, par exemple User sera disponible dans connection.models.User
 
-// User.hasMany(Article, { as: "articles" });
-// Article.belongsTo(User);
-
+//
 
 /* ------------------------------------- */
 /* SYNCHRONISATION DE LA BASE DE DONNEES */
@@ -38,4 +38,5 @@ console.log('Synchronisation OK');
 
 export {
     User,
+    Content
 }

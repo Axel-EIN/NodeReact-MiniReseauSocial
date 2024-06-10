@@ -2,7 +2,7 @@ import express from 'express';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import { ENV } from './config/env.js';
-import tweetController from './controllers/content.controller.js'
+import tweetRoute from './routes/content.route.js'
 
  // CONNECTION à la base de données SQL
 import './models/index.js';
@@ -22,7 +22,7 @@ app.use(cors());
 // MIDDLEWARE TO ROUTE
 app.use("/api/user", routerUser);
 // MIDDLEWARE ROUTE
-app.use('/api/tweets', tweetController);
+app.use('/api/tweets', tweetRoute);
 
 
 app.listen(PORT, () => {
