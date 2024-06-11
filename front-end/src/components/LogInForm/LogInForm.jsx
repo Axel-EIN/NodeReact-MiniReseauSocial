@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 
 import { useNavigate } from "react-router-dom";
-import { useUser } from "../../contexts/userContext.jsx";
+import { UserContext } from "../../contexts/userContext";
 
 import "./LogIn.css";
 
@@ -9,8 +9,8 @@ const LogInForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  const { login } = useUser();
-
+  const { login } = useContext(UserContext)
+  
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
