@@ -5,6 +5,7 @@ import cors from 'cors';
 // ROUTES
 import tweetRoute from './routes/content.route.js';
 import routerUser from './routes/user.route.js';
+import inboxRoute from './routes/inbox.route.js'
 
 // CONNECTION à la base de données SQL
 import './models/index.js';
@@ -26,5 +27,6 @@ app.use(cors(corsOptions));
 // MIDDLEWARE TO ROUTE
 app.use("/api/user", routerUser);
 app.use('/api/tweets', tweetRoute);
+app.use('/api/inbox', inboxRoute);
 
 export default app;
