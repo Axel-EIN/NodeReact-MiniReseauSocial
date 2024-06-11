@@ -1,8 +1,9 @@
 
-import React, { createContext, useState, useContext, useEffect } from 'react';
+import { createContext, useState, useEffect } from 'react';
 import { logIn, register } from '../api/api-client.js'; 
 import axios from 'axios';
-const UserContext = createContext();
+
+export const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
@@ -49,4 +50,3 @@ export const UserProvider = ({ children }) => {
   );
 };
 
-export const useUser = () => useContext(UserContext);

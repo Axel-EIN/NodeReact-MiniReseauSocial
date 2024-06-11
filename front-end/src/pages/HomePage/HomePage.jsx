@@ -1,12 +1,11 @@
-import Authorization from "../../components/Authorization/Authorization"
+import Authorization from "../../components/Authorization/Authorization";
 
-
-const HomePage = () =>{  
-
-  return(
+const HomePage = () => {
+  return (
     <>
-    <Authorization/>
+      <Authorization />
     </>
-  )
-}
+  );
+};
+
 export default HomePage;
