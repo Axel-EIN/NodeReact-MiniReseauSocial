@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
 import { getAllMessages } from '../../api/api-client';
-import { Link } from 'react-router-dom';
 
-const InboxProfile = () => {
+const Message = () => {
   const [messages, setMessages] = useState([]);
 
   useEffect(() => {
@@ -21,11 +20,15 @@ const InboxProfile = () => {
   return (
     <div>
       <header>
-        <h1>Profile</h1>
-        <Link to="/messages">Message</Link>
+        <h1>Messages</h1>
       </header>
+      <ul>
+        {messages.map((message, index) => (
+          <li key={index}>{message}</li>
+        ))}
+      </ul>
     </div>
   );
 };
 
-export default InboxProfile;
+export default Message;

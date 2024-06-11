@@ -21,5 +21,7 @@ export const logIn = async (email, password) => {
 
 export const register = (user) => apiClient.post("/user/add", user);
 
+export const getAllMessages = () => apiClient.get("/inbox/all");
+
 
 
