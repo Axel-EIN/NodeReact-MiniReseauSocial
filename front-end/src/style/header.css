@@ -1,0 +1,31 @@
+.navbar {
+  background-color: #000000;
+}
+
+.navbar-brand,
+.nav-link {
+  color: #ffffff !important;
+}
+
+.nav-link:hover {
+  color: #1da1f2 !important;
+}
+
+.navbar .btn {
+  background-color: #ffffff;
+  color: #000000;
+  border: none;
+}
+
+.navbar .btn:hover {
+  background-color: #e0e0e0;
+}
+
+/* Barre de recherche */
+.form-inline .form-control {
+  width: 300px;
+}
+
+.form-inline .btn {
+  margin-left: 10px;
+}

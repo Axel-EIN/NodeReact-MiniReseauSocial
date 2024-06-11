@@ -1,0 +1,48 @@
+.footer {
+    background-color: transparent;
+    padding: 10px 20px;
+    text-align: right;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 1s ease-in-out;
+  }
+  
+  .footer.visible {
+    background-color: #1da1f2;
+  }
+  
+  .footer-content .btn {
+    background-color: #ffffff;
+    color: #000000;
+    margin: 5px;
+    border: none;
+    padding: 10px 20px;
+    text-decoration: none;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
+  
+  .footer-content .btn.visible {
+    opacity: 1;
+  }
+  
+  .footer-content .btn:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .footer-text {
+    color: #ffffff;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .footer-text.visible {
+    opacity: 1;
+  }
+  
