@@ -1,32 +1,10 @@
-import express from 'express';
-import cookieParser from 'cookie-parser';
-import cors from 'cors';
+import { server } from './services/socket.js';
 import { ENV } from './config/env.js';
-import tweetRoute from './routes/content.route.js'
 
- // CONNECTION à la base de données SQL
-import './models/index.js';
+// PORT
+const PORT = ENV.PORT || 8080;
 
-// ROUTES
-import routerUser from './routes/user.route.js';
-import routerInbox from './routes/inbox.route.js';
-
-const app = express();
-
-const PORT = ENV.port || 8080;
-
-// MIDDLEWARE
-app.use(express.json());
-app.use(cookieParser());
-app.use(cors());
-
-// MIDDLEWARE TO ROUTE
-app.use("/api/user", routerUser);
-// MIDDLEWARE ROUTE
-app.use('/api/tweets', tweetRoute);
-
-app.use("/api/inbox", routerInbox);
-
-app.listen(PORT, () => {
+// LISTEN 
+server.listen(PORT, () => {
   console.log(`Listening at http://localhost:${PORT}`);
 });

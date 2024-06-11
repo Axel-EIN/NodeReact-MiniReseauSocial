@@ -1,11 +1,16 @@
 import express from 'express'
 import { Router } from 'express';
-import { Content } from '../models/index.js'
+import { Content } from '../models/index.js';
+import { io } from "../services/socket.js";
 
 // Create a new tweet
 const createTweet = async (req, res) => {
     try {
         const tweet = await Content.create(req.body);
+
+        // Emet un evvénement websocket pour informer les clients
+        io.emit('newTweet', response);
+
         res.status(201).json(tweet);
     } catch (error) {
         res.status(400).json({ error: error.message });
