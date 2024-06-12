@@ -6,6 +6,7 @@ import {
   register,
   getAll,
   getById,
+  getCurrent
 } from "../controllers/user.controller.js";
 
 const router = express.Router();
@@ -13,6 +14,7 @@ const router = express.Router();
 router.post("/add", register);
 router.get("/all", getAll);
 router.get("/:id", getById);
+router.get("/current", verifyToken, getCurrent);
 router.post("/sign", login);
 
 

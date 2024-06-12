@@ -33,6 +33,17 @@ const getById = async (req, res) => {
     }
 }
 
+// Récupération de l'utilisateur courant
+const getCurrent = async (req, res) => {
+    try {
+        const id = req.user.id;
+        const user = await User.findByPk(id);
+        res.status(200).json(user);
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 // Login de l'utilisateur
 const login = async (req, res) => {
     try {
@@ -69,5 +80,6 @@ export {
     login,
     register,
     getAll,
-    getById
+    getById,
+    getCurrent
 }

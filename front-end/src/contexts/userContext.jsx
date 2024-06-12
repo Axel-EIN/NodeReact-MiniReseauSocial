@@ -1,7 +1,7 @@
-
 import { createContext, useState, useEffect } from 'react';
 import { logIn, register } from '../api/api-client.js'; 
 import axios from 'axios';
+import { baseUrl } from '../utils/constants/urls.js';
 
 export const UserContext = createContext();
 
@@ -12,7 +12,7 @@ export const UserProvider = ({ children }) => {
  
     const getUser = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/api/user/current/get', {
+        const response = await axios.get( baseUrl + '/user/current', {
           withCredentials: true,
         });
         const userData = response.data;
