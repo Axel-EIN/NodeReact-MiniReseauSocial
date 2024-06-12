@@ -12,12 +12,11 @@ export const UserProvider = ({ children }) => {
  
     const getUser = async () => {
       try {
-        const response = await axios.get( baseUrl + '/user/current', {
-          withCredentials: true,
-        });
-        const userData = response.data;
-        console.log(userData);
-        setUser(userData);
+
+        const localUser = localStorage.getItem('user');
+        if ( localUser != null)
+            setUser(JSON.parse(localUser));
+
       } catch (error) {
         console.error('error', error);
       }
@@ -29,13 +28,14 @@ export const UserProvider = ({ children }) => {
   const login = async (email, password) => {
     const userData = await logIn(email, password);
     setUser(userData);
+    localStorage.setItem('user', JSON.stringify(userData));
 
     return userData;
   };
 
   const logout = () => {
     setUser(null);
-    localStorage.removeItem('token'); 
+    localStorage.removeItem('user'); 
   };
 
   const registerUser = async (userData) => {
